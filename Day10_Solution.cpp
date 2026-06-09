@@ -37,3 +37,29 @@ public:
         return head;
     }
 };
+
+/*
+Problem: Bulb Switcher
+Platform: LeetCode 319
+Difficulty: Medium
+
+Approach:
+- A bulb is toggled once for every divisor of its position.
+- Most numbers have divisors in pairs, resulting in an even number of toggles,
+  so the bulb ends up OFF.
+- Perfect squares have one unpaired divisor (their square root),
+  resulting in an odd number of toggles, so the bulb ends up ON.
+- Therefore, the bulbs that remain ON are exactly those at positions
+  which are perfect squares.
+- Count the number of perfect squares less than or equal to n.
+
+Time Complexity: O(1)
+Space Complexity: O(1)
+*/
+
+class Solution {
+public:
+    int bulbSwitch(int n) {
+        return sqrt(n);
+    }
+};
