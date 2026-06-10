@@ -38,3 +38,26 @@ public:
         return dummy->next;
     }
 };
+
+/* 
+Problem: Sign of the Product of an Array
+Platform: LeetCode
+Difficulty: Easy
+Approach: Track sign without computing product
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
+
+class Solution {
+public:
+    int arraySign(vector<int>& nums) {
+        int sign = 1;
+
+        for(int x : nums) {
+            if(x == 0) return 0;
+            if(x < 0) sign = -sign;
+        }
+
+        return sign;
+    }
+};
