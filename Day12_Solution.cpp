@@ -40,3 +40,25 @@ public:
         return head;
     }
 };
+
+/* 
+Problem: Count Odd Numbers in an Interval Range
+Platform: LeetCode
+Difficulty: Easy
+Approach: Mathematical counting (no iteration)
+Time Complexity: O(1)
+Space Complexity: O(1)
+*/
+
+class Solution {
+public:
+    int countOdds(int low, int high) {
+
+        int total = high - low + 1;
+
+        if(low % 2 == 0 && high % 2 == 0) {
+            return total / 2;
+        }
+        return (total + 1) / 2;
+    }
+};
