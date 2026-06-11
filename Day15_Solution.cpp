@@ -47,3 +47,41 @@ public:
     }
 };
 
+/*
+Problem: Excel Sheet Column Title
+Platform: LeetCode
+Difficulty: Easy
+
+Approach:
+- This is similar to converting a number to base-26.
+- The difference is that Excel columns are 1-indexed:
+      A = 1, B = 2, ..., Z = 26
+- Before taking modulo, decrement the number by 1.
+- Extract the character:
+      char('A' + columnNumber % 26)
+- Append it to the result.
+- Divide columnNumber by 26 and continue.
+- Reverse the result at the end.
+
+Time Complexity: O(log26(n))
+Space Complexity: O(log26(n))
+*/
+
+class Solution {
+public:
+    string convertToTitle(int columnNumber) {
+        string ans;
+
+        while (columnNumber > 0) {
+            columnNumber--;
+
+            ans += char('A' + (columnNumber % 26));
+
+            columnNumber /= 26;
+        }
+
+        reverse(ans.begin(), ans.end());
+
+        return ans;
+    }
+};
