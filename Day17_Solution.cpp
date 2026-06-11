@@ -2,7 +2,6 @@
 Problem: Min Stack
 Platform: LeetCode
 Difficulty: Medium
-
 Approach:
 - Use two stacks:
   1. st     -> stores all elements.
@@ -14,16 +13,7 @@ Approach:
 - While popping:
       If st.top() == minSt.top(),
       pop from both stacks.
-- top() returns st.top().
-- getMin() returns minSt.top().
-- This ensures all operations are O(1).
-
-Time Complexity:
-- push  : O(1)
-- pop   : O(1)
-- top   : O(1)
-- getMin: O(1)
-
+Time Complexity:O(1)
 Space Complexity: O(n)
 */
 
@@ -31,28 +21,22 @@ class MinStack {
 public:
     stack<int> st;
     stack<int> minSt;
-
     MinStack() {
     }
-
     void push(int val) {
         st.push(val);
 
         if (minSt.empty() || val <= minSt.top())
             minSt.push(val);
     }
-
     void pop() {
         if (st.top() == minSt.top())
             minSt.pop();
-
         st.pop();
     }
-
     int top() {
         return st.top();
     }
-
     int getMin() {
         return minSt.top();
     }
@@ -62,7 +46,6 @@ public:
 Problem: Two Sum
 Platform: LeetCode
 Difficulty: Easy
-
 Approach:
 - Use a hash map to store numbers and their indices.
 - For each element nums[i]:
@@ -71,7 +54,6 @@ Approach:
 - If it exists, return the indices.
 - Otherwise, store nums[i] and its index in the map.
 - Since exactly one solution exists, we will always find an answer.
-
 Time Complexity: O(n)
 Space Complexity: O(n)
 */
@@ -83,14 +65,11 @@ public:
 
         for (int i = 0; i < nums.size(); i++) {
             int complement = target - nums[i];
-
             if (mp.count(complement)) {
                 return {mp[complement], i};
             }
-
             mp[nums[i]] = i;
         }
-
         return {};
     }
 };
