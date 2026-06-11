@@ -57,3 +57,40 @@ public:
         return minSt.top();
     }
 };
+
+/*
+Problem: Two Sum
+Platform: LeetCode
+Difficulty: Easy
+
+Approach:
+- Use a hash map to store numbers and their indices.
+- For each element nums[i]:
+      complement = target - nums[i]
+- Check if complement already exists in the map.
+- If it exists, return the indices.
+- Otherwise, store nums[i] and its index in the map.
+- Since exactly one solution exists, we will always find an answer.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+*/
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> mp;
+
+        for (int i = 0; i < nums.size(); i++) {
+            int complement = target - nums[i];
+
+            if (mp.count(complement)) {
+                return {mp[complement], i};
+            }
+
+            mp[nums[i]] = i;
+        }
+
+        return {};
+    }
+};
