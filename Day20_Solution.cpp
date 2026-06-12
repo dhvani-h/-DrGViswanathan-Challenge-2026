@@ -30,3 +30,20 @@ public:
         return st.top();
     }
 };
+
+/* 
+Problem: Find Greatest Common Divisor of Array
+Platform: LeetCode
+Difficulty: Easy
+Approach: Find minimum and maximum element, then compute GCD
+Time Complexity: O(n + log(max(nums)))
+Space Complexity: O(1)
+*/
+class Solution {
+public:
+    int findGCD(vector<int>& nums) {
+        int mn = *min_element(nums.begin(), nums.end());
+        int mx = *max_element(nums.begin(), nums.end());
+        return gcd(mn, mx);
+    }
+};
