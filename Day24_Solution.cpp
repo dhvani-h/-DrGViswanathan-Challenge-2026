@@ -9,10 +9,10 @@ Space Complexity: O(n)
 class Solution {
 public:
     int calculate(string s) {
-        stack<int> st;
-        int result = 0;
-        int number = 0;
-        int sign = 1;
+        stack<long long> st;
+        long long result = 0;
+        long long number = 0;
+        long long sign = 1;
         for(char c : s) {
             if(isdigit(c)) {
                 number = number * 10 + (c - '0');
@@ -38,14 +38,11 @@ public:
                 number = 0;
                 result *= st.top();
                 st.pop();
-
                 result += st.top();
                 st.pop();
             }
         }
-
         result += sign * number;
-
-        return result;
+        return (int)result;
     }
 };
