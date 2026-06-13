@@ -46,3 +46,26 @@ public:
         return (int)result;
     }
 };
+
+
+/* 
+Problem: Move Zeroes
+Platform: LeetCode
+Difficulty: Easy
+Approach: Two Pointers
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int pos = 0;
+
+        for(int i = 0; i < nums.size(); i++) {
+            if(nums[i] != 0) {
+                swap(nums[pos], nums[i]);
+                pos++;
+            }
+        }
+    }
+};
