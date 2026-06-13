@@ -1,0 +1,51 @@
+/* 
+Problem: Basic Calculator
+Platform: LeetCode
+Difficulty: Hard
+Approach: Stack + Sign Handling
+Time Complexity: O(n)
+Space Complexity: O(n)
+*/
+class Solution {
+public:
+    int calculate(string s) {
+        stack<int> st;
+        int result = 0;
+        int number = 0;
+        int sign = 1;
+        for(char c : s) {
+            if(isdigit(c)) {
+                number = number * 10 + (c - '0');
+            }
+            else if(c == '+') {
+                result += sign * number;
+                number = 0;
+                sign = 1;
+            }
+            else if(c == '-') {
+                result += sign * number;
+                number = 0;
+                sign = -1;
+            }
+            else if(c == '(') {
+                st.push(result);
+                st.push(sign);
+                result = 0;
+                sign = 1;
+            }
+            else if(c == ')') {
+                result += sign * number;
+                number = 0;
+                result *= st.top();
+                st.pop();
+
+                result += st.top();
+                st.pop();
+            }
+        }
+
+        result += sign * number;
+
+        return result;
+    }
+};
