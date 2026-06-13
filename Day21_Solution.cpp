@@ -32,3 +32,24 @@ public:
         return low == 0;
     }
 };
+
+/* 
+Problem: Pascal's Triangle II
+Platform: LeetCode
+Difficulty: Easy
+Approach: Build row using Pascal's Triangle properties
+Time Complexity: O(rowIndex)
+Space Complexity: O(rowIndex)
+*/
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+        vector<int> row(rowIndex + 1, 1);
+
+        for(int i = 1; i < rowIndex; i++) {
+            row[i] = (long long)row[i - 1] * (rowIndex - i + 1) / i;
+        }
+
+        return row;
+    }
+};
