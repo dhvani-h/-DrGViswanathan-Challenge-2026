@@ -6,7 +6,6 @@ Approach: DFS Recursion
 Time Complexity: O(n)
 Space Complexity: O(h)
 */
-
 class Solution {
 public:
     int sumOfLeftLeaves(TreeNode* root) {
@@ -24,5 +23,28 @@ public:
         sum += sumOfLeftLeaves(root->right);
 
         return sum;
+    }
+};
+
+/* 
+Problem: Kth Largest Element in an Array
+Platform: LeetCode
+Difficulty: Medium
+Approach: Min Heap of Size k
+Time Complexity: O(n log k)
+Space Complexity: O(k)
+*/
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int, vector<int>, greater<int>> pq;
+        for(int num : nums) {
+            pq.push(num);
+            if(pq.size() > k) {
+                pq.pop();
+            }
+        }
+
+        return pq.top();
     }
 };
