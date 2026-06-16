@@ -35,3 +35,26 @@ public:
         return result;
     }
 };
+
+/*
+Problem: Rotate Image
+Platform: LeetCode 48
+Difficulty: Medium
+Approach: Transpose Matrix + Reverse Each Row
+Time Complexity: O(n²)
+Space Complexity: O(1)
+*/
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                swap(matrix[i][j], matrix[j][i]);
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            reverse(matrix[i].begin(), matrix[i].end());
+        }
+    }
+};
