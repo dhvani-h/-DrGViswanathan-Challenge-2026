@@ -23,3 +23,30 @@ public:
         return diameter;
     }
 };
+
+/*
+Problem: Find the Duplicate Number
+Platform: LeetCode 287
+Difficulty: Medium
+Approach: Floyd's Cycle Detection (Tortoise and Hare)
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slow = nums[0];
+        int fast = nums[0];
+        do {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while (slow != fast);
+
+        slow = nums[0];
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
+    }
+};
