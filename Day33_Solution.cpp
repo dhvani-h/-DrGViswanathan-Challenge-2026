@@ -25,7 +25,31 @@ public:
                 if (node->right) q.push(node->right);
             }
         }
-
         return ans;
+    }
+};
+
+/*
+Problem: Lexicographically Smallest Palindrome
+Platform: LeetCode
+Difficulty: Easy
+Approach: Two Pointers (Greedy)
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
+class Solution {
+public:
+    string makeSmallestPalindrome(string s) {
+        int left = 0, right = s.size() - 1;
+        while (left < right) {
+            if (s[left] != s[right]) {
+                char smaller = min(s[left], s[right]);
+                s[left] = smaller;
+                s[right] = smaller;
+            }
+            left++;
+            right--;
+        }
+        return s;
     }
 };
