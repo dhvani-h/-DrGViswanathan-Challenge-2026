@@ -21,3 +21,27 @@ public:
     }
 };
 
+/*
+Problem: Remove All Adjacent Duplicates In String
+Platform: LeetCode
+Difficulty: Easy
+Approach: Stack
+Time Complexity: O(n), Space Complexity: O(n)
+*/
+
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        string st;
+        
+        for (char c : s) {
+            if (!st.empty() && st.back() == c)
+                st.pop_back();
+            else
+                st.push_back(c);
+        }
+        
+        return st;
+    }
+};
+
