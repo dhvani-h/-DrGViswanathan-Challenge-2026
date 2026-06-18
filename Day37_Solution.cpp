@@ -39,3 +39,32 @@ public:
         return ans;
     }
 };
+
+/*
+Problem: Find First Palindromic String in the Array
+Platform: LeetCode
+Difficulty: Easy
+Approach: Check each string for palindrome
+Time Complexity: O(n*m), Space Complexity: O(1)
+*/
+
+class Solution {
+public:
+    string firstPalindrome(vector<string>& words) {
+        for (string &s : words) {
+            int l = 0, r = s.size() - 1;
+            bool pal = true;
+            
+            while (l < r) {
+                if (s[l++] != s[r--]) {
+                    pal = false;
+                    break;
+                }
+            }
+            
+            if (pal) return s;
+        }
+        
+        return "";
+    }
+};
