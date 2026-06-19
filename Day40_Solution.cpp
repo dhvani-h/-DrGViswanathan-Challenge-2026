@@ -19,3 +19,20 @@ public:
         return nullptr;
     }
 };
+
+// Problem: Rotate String
+// Platform: LeetCode 796
+// Difficulty: Easy
+// Approach: Concatenation Check
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        if (s.length() != goal.length()) return false;
+        
+        string doubled = s + s;
+        return doubled.find(goal) != string::npos;
+    }
+};
